@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+
+int push(char element, char *stack, int top)
+{   
+    
+        top = top + 1;
+        stack[top] = element;
+        printf("\nSuccessfully Pushed Element!!");
+        return top;    
+}
+
+int pop(char *stack, int top)
+{   
+    if(top == -1)
+    {
+        printf("\nNothing to Pop");
+        return top;
+    }
+    else
+    {
+        printf("\nPopped Element is : %c", stack[top]);
+        top = top - 1;
+        return top;
+    } 
+}
+
+int main()
+{
+    char stack[];
+    int top = -1;
+    
+
+    for (int i=0;i<strlen(stack);i++)
+    {
+      if(stack[i]=="(" || stack[i]=="{" || stack[i]=="[")
+       {
+          top = push(stack[i],stack,top);
+       }
+      else
+       {
+        top = pop(stack[i],top);
+       }
+    }
+
+    if(top == -1)
+    { 
+        printf("Brackets are balanced");
+    }
+    else
+    {
+        printf("Brackets are not balanced");
+    }
+
+    
+}
