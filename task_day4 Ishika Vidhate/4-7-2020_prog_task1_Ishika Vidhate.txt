@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+#include<bits/stdc++.h>
+using namespace std;
+
+class student
+{
+    
+    int year;
+    int roll;
+    int cgpa;
+    string name;
+    
+  public:  
+    student()
+    {
+        year=1;
+        roll=2;
+        name="Ishika";
+        cgpa=89;
+    }
+    
+    void total(int* m)
+    {
+        int c=0;
+        for(int i=0;i<5;i++)
+        {
+            c=c+m[i];
+        }
+        cout<<c<<endl<<endl;
+    }
+    
+     void result(int* m)
+    {
+        int c=0;
+        for(int i=0;i<5;i++)
+        {
+            c+=m[i];
+        }
+        int res=c/5;
+        cout<<res<<endl<<endl;
+    }
+    
+    void display()
+    {
+        int a;
+        cout<<"enter class  ";
+        cin>>a;
+        cout<<"class is "<<a<<endl;
+    }
+    
+};
+
+int main()
+{
+    student s1;
+    int *marks{ new int[5]{65,23,35,87,98}};
+    s1.total(marks);
+    s1.result(marks);
+    s1.display();
+}
