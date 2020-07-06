@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Student{
+    public:
+    //DEFAULT CONDITION
+    string name = "Name";   
+    int roll= 00;
+    string branch="Gen";
+
+};
+
+void showRank(int rank){
+    cout << rank << endl;
+}
+
+void showRank(string name, int roll, string branch){
+    cout << "\nNo integer passed, therefore student details are "<< endl;
+    cout << "Name: " << name << endl;
+    cout << "Roll: " << roll << endl;
+    cout << "Branch: " << branch << endl;
+}
+
+void showRank(string name, int roll, string branch, int rank){
+    cout << "\nBoth rank and student details are "<< endl;
+    cout << "Name: " << name << endl;
+    cout << "Roll: " << roll << endl;
+    cout << "Branch: " << branch << endl;
+    cout << "Rank: " << rank << endl;
+}
+
+
+int main(){
+    int rank;
+    Student s1;     
+    int user_input;
+
+    //INPUT 
+    cout << "Enter---\n1. TO GET RANK ONLY...!\n2. TO GET STUDENT DETAILS ONLY....!\n3. TO GET STUDENT DETAILS AS WELL AS RANK...!\nInput : ";
+    cin >> user_input;
+
+    if (user_input==1){     //TO GET RANK ONLY!
+        cout << "ENTER RANK: ";
+        cin >> rank;
+        cout << "ONLY RANK IS PASEED SO, RANK IS : ";
+        showRank(rank);
+    }else if (user_input==2){    //TO GET STUDENT DETAILS!   
+        cout << "\nPASS STUDENT DETAILS \n";
+        cout << "STUDENT NAME: ";
+        cin >> s1.name;
+        cout << "PASS ROLL NUMBER: ";
+        cin >> s1.roll;
+        cout << "PASS BRANCH : ";
+        cin >> s1.branch;   
+        showRank(s1.name, s1.roll, s1.branch);
+    }else{   //TO GET STUDENT DETAILS AS WELL AS RANK!
+        cout << "\nPASS STUDENT DETAILS \n";
+        cout << "STUDENT NAME: ";
+        cin >> s1.name;
+        cout << "PASS ROLL NUMBER: ";
+        cin >> s1.roll;
+        cout << "PASS BRANCH : ";
+        cin >> s1.branch;
+        cout << "PASS RANK: ";
+        cin >> rank;
+        showRank(s1.name, s1.roll, s1.branch, rank);
+    }
+    return 0;
+}
