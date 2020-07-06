@@ -1,0 +1,58 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Queue
+{
+    int arr[10];
+    int front,rear;
+}Queue;
+
+struct student
+{
+    int roll_no;
+    char name[];
+};
+void initialize(Queue* q){
+    q->front=0;
+    q->rear=0;
+}
+void enqueue(Queue* q,char* x){
+    q->arr[q->rear++]=*x;
+
+int isEmpty(Queue* q){
+    return q->front==q->rear;
+}
+
+void print(Queue* q){
+    if(isEmpty(q)){}
+        printf("Queue is empty\n");
+        return;
+    }
+
+}
+int main(){
+    int i;
+    struct student s[4];
+    Queue* q1=(Queue*)malloc(sizeof(Queue));
+    initialize(q1);
+    for(i=1;i<5;i++)
+    {
+        printf("\n enter details of  1st student");
+        printf("\n enter name ");
+        scanf("%s",s[i].name);
+        fflush();
+
+        printf("\n enter roll.no ");
+        scanf("%d",&s[i].roll_no);
+
+        if ((s[i].roll_no)%2==0)
+        {
+            enqueue(q1,s[i].name);
+        }
+
+    }
+    printf("\n");
+   print(q1);
+}
+
