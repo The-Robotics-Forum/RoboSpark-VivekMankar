@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+#include <string.h>
+using namespace std;
+
+class String
+{
+  public: 
+    string s1;
+
+    String(string str1)
+    {
+        this->s1 = str1; 
+    }
+
+    //FUNCTION CALLS
+    void operator+(string s);
+    void operator*(int k);
+    friend istream& operator >> (istream &cin, String s);
+    friend ostream& operator << (ostream &cout, String s);
+    
+};
+
+void String::operator+(string s)
+ {
+    cout << "\nConcatenation: " << s1.append(s) << endl;
+}
+
+void String::operator*(int k)
+{   
+    cout << "String replication: ";
+    for(int i=0; i<k; i++)
+    {
+        cout << s1;
+    }
+}
+
+istream& operator >> (istream &cin, String s)
+{   
+    int k;
+    cout << "\nHow many numbers wanna you enter?" << endl;
+    cin>>k;
+    cout << "Enter " << k << " elements: ";
+    for (int i = 0; i < k; i++)
+        cin >> s.s1;
+
+    return cin;
+}
+
+ostream& operator << (ostream &cout, String s)
+{   
+    int k;
+    cout << "\nHow many times you wanna print the name?" << endl;
+    cin >> k;
+    cout << "Here: ";
+    for (int i = 0; i < k; i++)
+        cout << s.s1 << "\t";
+    cout << endl;
+    return cout;
+}
+
+int main() {
+    String s("Ju");
+    s+"Hi";
+    s*3;
+    cin>>s;
+    cout<<s;
+}
