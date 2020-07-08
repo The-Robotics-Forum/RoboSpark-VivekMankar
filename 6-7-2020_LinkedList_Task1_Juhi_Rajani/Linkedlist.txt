@@ -1,0 +1,104 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node* insertatFront(struct node *head,int value);
+void insertatEnd(struct node *head,int value);
+void insertinMiddle(struct node *a, int value);
+void Deletion(struct node *a);
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+int main()
+{   
+    struct node *head = (struct node *)malloc(sizeof(struct node));
+
+    head->data = 1;
+    head->next = NULL;
+
+
+    struct node *second_link = (struct node *)malloc(sizeof(struct node));
+    second_link->data = 2;
+    second_link->next = NULL;
+
+    head -> next = second_link;
+
+
+    struct node *third_link = (struct node *)malloc(sizeof(struct node));
+    third_link->data = 3;
+    third_link->next = NULL;
+
+    second_link->next = third_link;
+
+    struct node *fourth_link = (struct node *)malloc(sizeof(struct node));
+    fourth_link->data = 4;
+    fourth_link->next = NULL;
+
+    third_link->next = fourth_link;
+
+    /*FUNCTION CALLS*/
+
+    head = insertatFront(head,0);   
+    insertatEnd(head,20);
+    insertinMiddle(head->next,9);
+    Deletion(head->next->next);
+
+    /* Printing the data of the Linked List */
+
+    struct node *temp = head;
+
+    while(temp->next!=NULL)
+    {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("%d -> NULL ", temp->data);
+
+
+}
+
+/* INSERTING AN ELEMENT AT THE BEGINNING */
+struct node* insertatFront(struct node *head,int value)
+{
+	struct node *a;
+	a = malloc(sizeof(struct node));    
+	a->data = value;
+	a->next = head;
+	return (a); 
+}
+
+/* INSERTING AN ELEMENT AT THE END */
+void insertatEnd(struct node *head,int value)
+{
+    struct node *p,*q;
+    p=malloc(sizeof(struct node));
+    p->data=value;
+    p->next=NULL;
+    q=head;
+    while(q->next!=NULL)
+    {
+        q = q->next;
+    }
+    q->next = p;
+}
+
+/* INSERTING AN ELEMENT IN THE MIDDLE */
+void insertinMiddle(struct node *a, int value)
+{
+    struct node *n;
+    n = malloc(sizeof(struct node));
+    n->data = value;
+    n->next = a->next;
+    a->next = n;
+}
+
+/* PASS THE NODE WHICH IS ONE NODE PRIOR TO THE NODE WHICH IS TO BE DELETED */
+void Deletion(struct node *a)       
+ {
+    struct node *temp;
+    temp = a->next;
+    a->next = temp->next;
+    free(temp);
+}
