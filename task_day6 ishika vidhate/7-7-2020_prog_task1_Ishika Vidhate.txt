@@ -1,0 +1,95 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class name
+{
+    char str[40];
+    
+    public:
+    name()
+    {
+        //default constructor
+    }
+    
+    name(char s[])
+    {
+        strcpy(str,s);
+    }
+    
+    name(name &s)
+    {
+        strcpy(str,s.str)
+    }
+    name operator+(name s2);
+    name operator*(int x);
+    friend name operator*(int x, name& l);
+    friend istream& operator >> (istream &cin, name &l);
+    friend ostream& operator << (ostream &cout, name &l);
+
+};
+ 
+name name::operator+(name s2)
+{
+    name r;
+    strcpy(r.str,str);
+    strcat(r.str,s2.str);
+    return r;
+}
+
+name name::operator*(int x)
+{
+    name r;
+    name t=*this;
+    strcpy(r.str,str);
+    for(int i=0;i<x;i++)
+    {
+        strcat(r.str,t.str);
+    }
+    return r ;
+}
+
+name operator*(int x, name& l)
+{
+    name r;
+    name t;
+    strcpy(t.str,l.str);
+    strcpy(r.str,l.str);
+    strcpy(r.str,str);
+    for(int i=0;i<x;i++)
+    {
+        strcat(r.str,t.str);
+    }
+    return r ;
+}
+istream& operator >> (istream &cin, name &l)
+{
+    cout << "Enter string: ";
+    cin >> l.str;
+
+    return cin;
+}
+
+ostream& operator << (ostream &cout,name &l)
+{
+    cout << "string: ";
+    cout << l.str <<endl;
+    return cout;
+
+}
+
+ 
+int main()
+{
+    name s1="ishika";
+    name s2="vidhate";
+    name s3=s1+s2;
+    name s4;
+    cout<<"string 1="<<s1;
+    cout<<"string 2="<<s2;
+    cout<<"string 1+string 2="<<s3;
+    cin>>s4;
+    name s5=s1*2;
+    cout<<"string 5="<<s5;
+    name s6=2*s1;
+    cout<<"string 6="<<s6;
+}
