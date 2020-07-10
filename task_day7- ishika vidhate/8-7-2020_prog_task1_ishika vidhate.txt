@@ -1,0 +1,144 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class personal
+{
+    public:
+    personal()
+    {
+        name = new char[10];
+        surname=new char[10];
+        address=new char[20];
+        name="Ishika";
+        surname="Vidhate";
+        address="bibwewadi, pune";
+        mobile_no=7674;
+        dob=2405;
+        
+        
+    }
+    
+    protected:
+    string name;
+    string surname;
+    string address;
+    int mobile_no;
+    int dob;
+};
+class professional
+{
+    public:
+    professional()
+    {
+        name_of_organization = new char[10];
+        job_profile=new char[10];
+        project=new char[20];
+        name_of_organization="sip";
+        job_profile="manager";
+        project="rieu";
+        
+        
+    }
+    
+    protected:
+    string name_of_organization;
+    string job_profile;
+    string project;
+};
+class academic
+{
+    public:
+    academic()
+    {
+        college_name = new char[10];
+        branch=new char[10];
+        year_of_passing=2023;
+        cgpa=89.06;
+        college_name="VIT";
+        branch="mech";
+        
+        cout<<"academic data"<<endl;
+        cout<<"year_of_passing : "<<year_of_passing<<endl;
+        cout<<"cgpa : "<<cgpa<<endl;
+        cout<<"college_name : "<<college_name<<endl;
+        cout<<"branch : "<<branch<<endl;
+    }
+    
+    protected:
+    int year_of_passing;
+    float cgpa;
+    string college_name;
+    string branch;
+};
+class biodata:public academic,public professional,public personal
+{
+    public:
+    biodata()
+    {
+        cout<<"biodata :"<<endl;
+    }
+    void display();
+    
+    void get_data();
+};
+void display()
+    {
+        cout<<"personal data"<<endl;
+        cout<<"name : "<<name<<endl;
+        cout<<"surname : "<<surname<<endl;
+        cout<<"address : "<<address<<endl;
+        cout<<"mobile_no : "<<mobile_no<<endl;
+        cout<<"dob : "<<dob<<endl;
+        
+        cout<<"professional data"<<endl;
+        cout<<"name_of_organization : "<<name_of_organization<<endl;
+        cout<<"job_profile : "<<job_profile<<endl;
+        cout<<"project : "<<project<<endl;
+        
+        cout<<"academic data"<<endl;
+        cout<<"year_of_passing : "<<year_of_passing<<endl;
+        cout<<"cgpa : "<<cgpa<<endl;
+        cout<<"college_name : "<<college_name<<endl;
+        cout<<"branch : "<<branch<<endl;
+    }
+void get_data()
+    {
+        cout<<"enter personal data";
+        cout<<"name : "<<endl;
+        cin>> name;
+        cout<<"surname : "<<endl;
+        cin>>surname;
+        cout<<"address : "<<endl;
+        cin>>address;
+        cout<<"mobile_no : "<<endl;
+        cin>>mobile_no;
+        cout<<"dob : "<<endl;
+        cin>>dob;
+        
+        cout<<"enter professional data";
+        cout<<"name_of_organization : "<<endl;
+        cin>>name_of_organization;
+        cout<<"job_profile : "<<endl;
+        cin>>job_profile;
+        cout<<"project : "<<endl;
+        cin>>project;
+        
+        cout<<"enter academic data";
+        cout<<"year_of_passing : "<<endl;
+        cin>>year_of_passing;
+        cout<<"cgpa : "<<endl;
+        cin>>cgpa;
+        cout<<"college_name : "<<endl;
+        cin>>college_name;
+        cout<<"branch : "<<endl;
+        cin>>branch;
+    }
+    
+int main()
+{
+    biodata A;
+    A.display();
+    A.get_data();
+    A.display();
+    
+}
