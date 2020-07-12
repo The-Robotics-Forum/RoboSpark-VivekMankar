@@ -1,0 +1,40 @@
+body{
+    background: url("../images/bg.png") fixed no-repeat;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    
+}
+
+.about{
+    margin-top: -10%;
+    margin-left: 20%;
+}
+
+.projects{
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+.hobbies{
+    margin-left: 2%;
+}
+
+.education{
+    margin-left: 2%;
+}
+.projects h2{
+    background-color: greenyellow;
+    margin-right: 90%;
+
+}
+
+.hobbies h2{
+    background-color: indianred;
+    margin-right: 90%;
+}
+
+.education h2{
+    background-color: lightseagreen;
+    margin-right: 87%;
+}
